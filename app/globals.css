@@ -31,3 +31,8 @@ body {
     text-wrap: balance;
   }
 }
+
+.login-form-container {
+  @apply p-6 flex flex-col items-center gap-5 rounded-b-md border border-zinc-800;
+}
+
