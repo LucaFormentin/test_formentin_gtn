@@ -19,6 +19,7 @@ import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 import { VisibilityOffRounded, VisibilityRounded } from '@mui/icons-material'
 import { login } from '@/app/actions'
+import { useLoggedUserContext } from '@/app/context/LoggedUserContextProvider'
 
 const LoginFormHeader = () => {
   return (
@@ -38,8 +39,9 @@ const LoginForm = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
   const [isPwdVisible, setIsPwdVisible] = useState(false)
+  const { setUser } = useLoggedUserContext()
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     const { value: emailVal } = emailRef.current
@@ -50,6 +52,8 @@ const LoginForm = () => {
     try {
       const user = await login(loginData)
       const { id: userId } = user
+
+      setUser(user)
 
       router.push(`/home/${userId}`)
       toast.success('Login successfull!')
@@ -81,7 +85,8 @@ const LoginForm = () => {
               <InputAdornment position='end'>
                 <IconButton
                   onClick={() => setIsPwdVisible(!isPwdVisible)}
-                  edge='end'>
+                  edge='end'
+                >
                   {isPwdVisible ? (
                     <VisibilityOffRounded />
                   ) : (

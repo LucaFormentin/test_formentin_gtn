@@ -1,7 +1,6 @@
-const Home = ({ userInfo }) => {
-  const { username } = userInfo
+const Home = () => {
   
-  return <>{username}</>
+  return <>Hello World!</>
 }
 
 export default Home

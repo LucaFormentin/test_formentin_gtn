@@ -1,11 +1,12 @@
 'use client'
 
+import { useLoggedUserContext } from '@/app/context/LoggedUserContextProvider'
 import { MenuRounded } from '@mui/icons-material'
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@mui/material'
-import toast from 'react-hot-toast'
+import { AppBar, IconButton, Toolbar, Typography } from '@mui/material'
+import AccountMenu from './AccountMenu'
 
 const Header = () => {
-  const logout = () => toast.success('Logged out!')
+  const { user } = useLoggedUserContext()
 
   return (
     <AppBar position='static'>
@@ -14,9 +15,7 @@ const Header = () => {
           <MenuRounded />
         </IconButton>
         <Typography variant='h6'>Test Formentin</Typography>
-        <Button variant='contained' className='ml-auto' href={'/'} onClick={logout}>
-          Logout
-        </Button>
+        <AccountMenu username={user.username} />
       </Toolbar>
     </AppBar>
   )

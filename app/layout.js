@@ -3,6 +3,7 @@ import './globals.css'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import muiTheme from '@/style/theme'
 import { Toaster } from 'react-hot-toast'
+import { LoggedUserContextProvider } from './context/LoggedUserContextProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <ThemeProvider theme={muiTheme}>
-          {children}
+          <LoggedUserContextProvider>{children}</LoggedUserContextProvider>
           <CssBaseline />
           <Toaster toastOptions={{ duration: 3000 }} />
         </ThemeProvider>
