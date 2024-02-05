@@ -1,7 +1,7 @@
-import { StyledBadge } from '@/style/theme'
 import { Avatar, IconButton } from '@mui/material'
 import AccountSettings from './AccountSettings'
 import { useState } from 'react'
+import { StyledBadge } from '@/style/styledElements'
 
 const StyledAvatar = ({ username }) => {
   return (
@@ -11,7 +11,7 @@ const StyledAvatar = ({ username }) => {
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
     >
       <Avatar className='ring ring-blue-600 ring-offset-2 ring-offset-zinc-900 font-semibold'>
-        {username.trim().slice(0, 2).toUpperCase()}
+        {username?.trim().slice(0, 2).toUpperCase()}
       </Avatar>
     </StyledBadge>
   )

@@ -1,6 +1,7 @@
+import { Main } from '@/style/styledElements'
+
 const Home = () => {
-  
-  return <>Hello World!</>
+  return <>from home</>
 }
 
 export default Home
