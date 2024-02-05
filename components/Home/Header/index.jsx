@@ -27,10 +27,10 @@ const Header = () => {
   return (
     <>
       <AppBar position='static' open={openDrawer}>
-        <Toolbar>
+        <Toolbar className='border-b border-b-blue-600'>
           <IconButton
             onClick={handleDrawerOpen}
-            sx={{ ...(openDrawer && { display: 'none' }) }}
+            sx={{ mr: 2, ...(openDrawer && { display: 'none' }) }}
           >
             <MenuRounded />
           </IconButton>
@@ -38,7 +38,7 @@ const Header = () => {
           <AccountMenu username={user.username} />
         </Toolbar>
       </AppBar>
-      <Drawer open={openDrawer} onClose={handleDrawerClose}/>
+      <Drawer open={openDrawer} onClose={handleDrawerClose} />
     </>
   )
 }

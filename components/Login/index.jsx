@@ -39,6 +39,7 @@ const LoginForm = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
   const [isPwdVisible, setIsPwdVisible] = useState(false)
+  const [hasError, setHasError] = useState(false)
   const { setUser } = useLoggedUserContext()
 
   const handleSubmit = async (e) => {
@@ -59,6 +60,7 @@ const LoginForm = () => {
       toast.success('Login successfull!')
     } catch (error) {
       toast.error(error.message)
+      setHasError(true)
     }
   }
 
@@ -72,6 +74,9 @@ const LoginForm = () => {
           variant='outlined'
           label='Email Address'
           fullWidth
+          error={hasError}
+          helperText={hasError && 'Incorrect email'}
+          onChange={() => hasError && setHasError(false)}
         />
         <FormControl variant='outlined' fullWidth required>
           <InputLabel htmlFor='outlined-adornment-password'>
