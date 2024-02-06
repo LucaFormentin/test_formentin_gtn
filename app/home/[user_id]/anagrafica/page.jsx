@@ -2,7 +2,7 @@ import Loading from '@/app/loading'
 import { Typography } from '@mui/material'
 import { Suspense } from 'react'
 
-const AnagraficaPage = async () => {
+const AnagraficaPage = () => {
   return (
     <Suspense fallback={<Loading />}>
       <Typography variant='h4'>Anagrafica</Typography>
